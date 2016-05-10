@@ -1,27 +1,28 @@
 import java.util.*;
-public class Alphabet
+public class Alphabet// This class specializes in using methods to manipulate a user input string in the constructor. TSome methods are used to determine specific letter characteristics (which letter? consonant? where in the word?
+//relation to surrounding letters?). Other methods are used to change the letter arrangments/compositions in the words accordingly. Each methods purpose will be defined at the method header.
 {
-    private String x;
-    private boolean check = true;
-    public Alphabet(String a)
+    private String x;//word
+    private boolean check = true;// boolean comparison for ease of use
+    public Alphabet(String a)//constructor
     {
         x=a;
 
     }
 
-    public String last()
+    public String last()// returns last letter in word
     {
         int end = x.length();
         int end2 = x.length()-1;
         return x.substring(end2, end);
     }
 
-    public String first()
+    public String first()//returns first letter in word
     {
         return x.substring(0,1);
     }
 
-    public boolean isCons()
+    public boolean isCons()//determines if the first letter in the word is a consonant
     {
         if(!first().equalsIgnoreCase("a") && !first().equalsIgnoreCase("e") && !first().equalsIgnoreCase("i")  && !first().equalsIgnoreCase("o") && !first().equalsIgnoreCase("u"))
         {
@@ -33,7 +34,7 @@ public class Alphabet
         }
     }
 
-    public boolean isConsWithString(String b)
+    public boolean isConsWithString(String b)//determines if a specific letter input is a consonant (2 methods with same purpose to achieve same goal for different inputs available)
     {
         if(!b.equalsIgnoreCase("a") && !b.equalsIgnoreCase("e") && !b.equalsIgnoreCase("i")  && !b.equalsIgnoreCase("o") && !b.equalsIgnoreCase("u"))
         {
@@ -45,7 +46,7 @@ public class Alphabet
         }
     }
 
-    public String changeV()
+    public String changeV()// conjugates verbs
     {
         String temp;
         if(first().equalsIgnoreCase("a"))
@@ -418,7 +419,7 @@ public class Alphabet
         return x;
     }
     //*
-    public String changeA()
+    public String changeA()//conjugates adjectives
     {
         String temp;
         if(first().equalsIgnoreCase("a"))
@@ -789,21 +790,9 @@ public class Alphabet
         return x;
     }
 
-    public String test()
-    {
-        if(isConsWithString(last()) == check)
-        {
-            x+="um";
-        }
-        else
-        {
-            x = x.substring(0,x.length()-1);
-            x+="um";
-        }
-        return x;
-    }
+    
 
-    public String changeN()
+    public String changeN()//conjugates nouns
     {
         String temp;
         if(x.equalsIgnoreCase("dingo"))
@@ -1172,7 +1161,7 @@ public class Alphabet
         return x;
     }
 
-    public String separate()
+    public String separate()//separates all non-fluid consonants in the word with the closest vowel in the word, or a default vowel if no such vowel exists, this is normaly performed after all conjugation has occured.
     {
         String test = "";
         String k = "";
@@ -1223,13 +1212,13 @@ public class Alphabet
         return test;
     }
 
-    private void vowels(int a, List<String> l)
+    private void vowels(int a, List<String> l)//determines the correct vowel in the list of vowels to use in seprating specific consonants
     {
         String k = "";
         int m=a+1;
         int x=0;
         int y=0;
-        while(m<l.size())
+        while(m<l.size())//traversing list w/vowels.
         {
             if(!isConsWithString(l.get(m)))
             {
@@ -1243,7 +1232,7 @@ public class Alphabet
                 m++;
             }
         }
-        if(k.equals("") && a!=1)
+        if(k.equals("") && a!=1)//determines correct vowel
         {
             m=a-2;
             while(m>=0)
@@ -1261,7 +1250,7 @@ public class Alphabet
             }
 
         }
-        else if(k.equals(""))
+        else if(k.equals(""))//if no such vowel exists
         {
             k = "a";
         }
@@ -1270,7 +1259,7 @@ public class Alphabet
     }
 
     
-    public String changeAdverb()
+    public String changeAdverb()//conjugates adverbs
     {
         String y=changeV().substring(0,x.length()-2);
         y+="ta";
@@ -1279,7 +1268,7 @@ public class Alphabet
 
     }
 
-    public String pronoun()
+    public String pronoun()//conjugates specific pronouns
     {
         if (x.equalsIgnoreCase("me") || x.equalsIgnoreCase("my") || x.equalsIgnoreCase("I"))
         {
@@ -1306,7 +1295,7 @@ public class Alphabet
             return null;
         }
     }//endmethod
-    public String prepConj()
+    public String prepConj()//conjugates prepositions and conjunctions
     {
         if(x.equalsIgnoreCase("and"))
         {
@@ -1329,7 +1318,7 @@ public class Alphabet
         }
     }//endmethod
 
-    public String inter()
+    public String inter()//conjugates idiomatic phrases and interjections (redone in runner class)
     {
         if(x.equalsIgnoreCase("Hello") || x.equalsIgnoreCase("hi"))
         {

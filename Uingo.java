@@ -2,7 +2,9 @@
 //********************************************************************
 //  UingRunner.java       Author: Arun/Ganesh
 //
-//  Driver to exercise the Uingo class.
+//  Driver to exercise the Alphabet class. This functions in the main method by taking a user sentence input (with only words and spaces), using a LinkedList to store all the words separated, and asks the user for the part of speech (specific) of the
+//word to conjugate it correctly into Uingo. Once all translated words are placed (replacing old words) in the list, the words are then printed out again using the correct spaces. Specific idiomatic expressions are hardcoded. Advanced topics used are 
+//scanners, linkedlist manipulation, substring manipulation and string traversing, for loops, for each loops, while loops, and exploiting method returns and functionality to apply all necessary changes to a word to fully translate it.
 //********************************************************************
 import java.util.*;
 public class Uingo
@@ -16,14 +18,14 @@ public class Uingo
       Scanner scan = new Scanner (System.in);
       
       
-      while (another.equalsIgnoreCase("y"))
+      while (another.equalsIgnoreCase("y"))//for another word
       {
          System.out.println ();
          System.out.println ("Enter a sentence:");
          word = scan.nextLine();
          int f=0;
          List<String>l=new LinkedList<String>();
-         while(f<word.length())
+         while(f<word.length())// separates words by spaces and stores them in lists
          {
             if(word.substring(f,f+1).equals(" "))
             {
@@ -38,11 +40,11 @@ public class Uingo
             }
             l.add(word);
             
-            for(String j:l)
+            for(String j:l)//prints separated words to show no words are missing or stuck together
             {
                 System.out.println(j);
             }
-            for(int i=0;i<l.size();i++)
+            for(int i=0;i<l.size();i++)//translating by traversing list*****ALL THE FOLLOWING IF STATEMENTS PROVIDE DIFFERENT TRANSLATIONS BASED ON USER INPUT OF PART OF SPEECH***
             {
     Alphabet a= new Alphabet(l.get(i));
     System.out.println("Word: "+l.get(i));
@@ -175,7 +177,7 @@ System.out.println(l.get(i));
 }
 }
 
-     for(String j:l)
+     for(String j:l)//printing final sentence
             {
                 System.out.print(j+" ");    
             }
