@@ -7,6 +7,7 @@
 //scanners, linkedlist manipulation, substring manipulation and string traversing, for loops, for each loops, while loops, and exploiting method returns and functionality to apply all necessary changes to a word to fully translate it.
 //********************************************************************
 import java.util.*;
+import java.lang.*;
 public class Uingo
 {
    //-----------------------------------------------------------------
@@ -118,13 +119,14 @@ System.out.println(l.get(i));
 }
 if(type.equals("3"))
 {
-    if(a.changeN().equalsIgnoreCase("fingum"))
+    if(l.get(i).equalsIgnoreCase("dingo"))
     {
         l.set(i,"fingum");
         System.out.println("fingum");
     }
     else
     {
+        a.changeN();
         l.set(i,a.separate());
         System.out.println(l.get(i));
 }

@@ -51,7 +51,7 @@ public class Alphabet// This class specializes in using methods to manipulate a 
         String temp;
         if(first().equalsIgnoreCase("a"))
         {
-            temp = x.substring(1,x.length());
+            temp = x.substring(0,x.length());
             x = "b"+temp;
             if(isConsWithString(last()) == check)
             {
@@ -110,7 +110,7 @@ public class Alphabet// This class specializes in using methods to manipulate a 
         }
         else if(first().equalsIgnoreCase("e"))
         {
-            temp = x.substring(0,x.length()-1);
+            temp = x.substring(0,x.length());
             x = "f"+temp;
             if(isConsWithString(last()) == check)
             {
@@ -166,7 +166,7 @@ public class Alphabet// This class specializes in using methods to manipulate a 
         }
         else if(first().equalsIgnoreCase("i"))
         {
-            temp = x.substring(0,x.length()-1);
+            temp = x.substring(0,x.length());
             x = "j"+temp;
             if(isConsWithString(last()) == check)
             {
@@ -250,7 +250,7 @@ public class Alphabet// This class specializes in using methods to manipulate a 
         }
         else if(first().equalsIgnoreCase("o"))
         {
-            temp = x.substring(0,x.length()-1);
+            temp = x.substring(0,x.length());
             x = "p"+temp;
             if(isConsWithString(last()) == check)
             {
@@ -334,7 +334,7 @@ public class Alphabet// This class specializes in using methods to manipulate a 
         }
         else if(first().equalsIgnoreCase("u"))
         {
-            temp = x.substring(0,x.length()-1);
+            temp = x.substring(0,x.length());
             x = "v"+temp;
             if(isConsWithString(last()) == check)
             {
@@ -803,7 +803,7 @@ public class Alphabet// This class specializes in using methods to manipulate a 
         {
             if(first().equalsIgnoreCase("a"))
             {
-                temp = x.substring(0,x.length()-1);
+                temp = x.substring(0,x.length());
                 x = "b"+temp;
                 if(isConsWithString(last()) == check)
                 {
@@ -860,7 +860,7 @@ public class Alphabet// This class specializes in using methods to manipulate a 
             }
             else if(first().equalsIgnoreCase("e"))
             {
-                temp = x.substring(0,x.length()-1);
+                temp = x.substring(0,x.length());
                 x = "f"+temp;
                 if(isConsWithString(last()) == check)
                 {
@@ -916,7 +916,7 @@ public class Alphabet// This class specializes in using methods to manipulate a 
             }
             else if(first().equalsIgnoreCase("i"))
             {
-                temp = x.substring(1,x.length());
+                temp = x.substring(0,x.length());
                 x = "j"+temp;
                 if(isConsWithString(last()) == check)
                 {
@@ -1000,7 +1000,7 @@ public class Alphabet// This class specializes in using methods to manipulate a 
             }
             else if(first().equalsIgnoreCase("o"))
             {
-                temp = x.substring(0,x.length()-1);
+                temp = x.substring(0,x.length());
                 x = "p"+temp;
                 if(isConsWithString(last()) == check)
                 {
@@ -1072,10 +1072,19 @@ public class Alphabet// This class specializes in using methods to manipulate a 
             {
                 temp = x.substring(1,x.length());
                 x = "v"+temp;
+                if(isConsWithString(last()) == check)
+                {
+                    x+="um";
+                }
+                else
+                {
+                    x = x.substring(0,x.length()-1);
+                    x+="um";
+                }
             }
             else if(first().equalsIgnoreCase("u"))
             {
-                temp = x.substring(0,x.length()-1);
+                temp = x.substring(0,x.length());
                 x = "v"+temp;
                 if(isConsWithString(last()) == check)
                 {
@@ -1209,7 +1218,7 @@ public class Alphabet// This class specializes in using methods to manipulate a 
         {
             test+=l.get(i);
         }
-        return test;
+        return x=test;
     }
 
     private void vowels(int a, List<String> l)//determines the correct vowel in the list of vowels to use in seprating specific consonants
@@ -1344,7 +1353,7 @@ public class Alphabet// This class specializes in using methods to manipulate a 
                 z=x.substring(x.length()-1,x.length());
             }
             String y=changeV();
-            x=y.substring(y.length()-2,y.length());
+            x=y.substring(0,y.length()-2);
             x+=z;
             return x;
         }//endelse
