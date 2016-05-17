@@ -1,7 +1,7 @@
 
 //********************************************************************
 //  UingRunner.java       Author: Arun/Ganesh
-//
+//Version 1.1
 //  Driver to exercise the Alphabet class. This functions in the main method by taking a user sentence input (with only words and spaces), using a LinkedList to store all the words separated, and asks the user for the part of speech (specific) of the
 //word to conjugate it correctly into Uingo. Once all translated words are placed (replacing old words) in the list, the words are then printed out again using the correct spaces. Specific idiomatic expressions are hardcoded. Advanced topics used are 
 //scanners, linkedlist manipulation, substring manipulation and string traversing, for loops, for each loops, while loops, and exploiting method returns and functionality to apply all necessary changes to a word to fully translate it.
@@ -22,7 +22,7 @@ public class Uingo
       while (another.equalsIgnoreCase("y"))//for another word
       {
          System.out.println ();
-         System.out.println ("Enter a sentence:");
+         System.out.println ("Enter a sentence without punctuation or numbers, that is more than 0 letters \n(by reading this statement you agree to follow all rules of this program as stated in this sentence and to enter in only valid parameters, \nviolaters will be prosecuted to the fullest extent of the law):");
          word = scan.nextLine();
          int f=0;
          List<String>l=new LinkedList<String>();

@@ -1,6 +1,9 @@
 import java.util.*;
-public class Alphabet// This class specializes in using methods to manipulate a user input string in the constructor. TSome methods are used to determine specific letter characteristics (which letter? consonant? where in the word?
+// This class specializes in using methods to manipulate a user input string in the constructor. TSome methods are used to determine specific letter characteristics (which letter? consonant? where in the word?
 //relation to surrounding letters?). Other methods are used to change the letter arrangments/compositions in the words accordingly. Each methods purpose will be defined at the method header.
+//Authors: Rahul Arun and Varun Ganesh
+//Version 1.1
+public class Alphabet
 {
     private String x;//word
     private boolean check = true;// boolean comparison for ease of use
