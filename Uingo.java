@@ -11,12 +11,12 @@ import java.lang.*;
 public class Uingo
 {
    //-----------------------------------------------------------------
-   //  Reads sentences and translates them into Pig Latin.
+   //  Reads sentences and translates them into Uingo.
    //-----------------------------------------------------------------
    public static void main (String[] args)
    {
-      String word, result,type, another = "y";
-      Scanner scan = new Scanner (System.in);
+      String word, result,type, another = "y";// another sentence
+      Scanner scan = new Scanner (System.in);//user input
       
       
       while (another.equalsIgnoreCase("y"))//for another word
@@ -25,7 +25,7 @@ public class Uingo
          System.out.println ("Enter a sentence without punctuation or numbers, that is more than 0 letters \n(by reading this statement you agree to follow all rules of this program as stated in this sentence and to enter in only valid parameters, \nviolaters will be prosecuted to the fullest extent of the law):");
          word = scan.nextLine();
          int f=0;
-         List<String>l=new LinkedList<String>();
+         List<String>l=new LinkedList<String>();// to store words ridding spaces
          while(f<word.length())// separates words by spaces and stores them in lists
          {
             if(word.substring(f,f+1).equals(" "))
@@ -56,68 +56,68 @@ public class Uingo
     System.out.println("Type 0 if indicative, 1 if deverbal (-ing), 2 if imperfect, 3 if preterite, 4 if past perfect, 5 if present perfect, 6 if command, 7 if conditional, 8 if future, 9 if future perfect");
 String type2=scan.nextLine();
  a.changeV();
-if(type2.equals("0"))
+if(type2.equals("0"))// normal verb conj
 {
    l.set(i,a.separate());
     System.out.println(l.get(i));
     
 }
-if(type2.equals("1"))
+if(type2.equals("1"))// if verb ends in ing, and ma
 {
     l.set(i,a.separate()+"ma");
     System.out.println(l.get(i));
 }
-if(type2.equals("2"))
+if(type2.equals("2"))// if verb is imperfect, add la
 {
     l.set(i,a.separate()+"la");
     System.out.println(l.get(i));
 
 }
-if(type2.equals("3"))
+if(type2.equals("3"))// if verb is preterite add le
 {
     l.set(i,a.separate()+"le");
     System.out.println(l.get(i));
 }
-if(type2.equals("4"))
+if(type2.equals("4"))// if verb is past perfect add li
 {
     l.set(i,a.separate()+"li");
     System.out.println(l.get(i));
 }
-if(type2.equals("5"))
+if(type2.equals("5"))// if verb is present perfect add lo
 {
 l.set(i,a.separate()+"lo");
 System.out.println(l.get(i));
 }
-if(type2.equals("6"))
+if(type2.equals("6"))// if verb is command add ya
 {
 l.set(i,a.separate()+"ya");
     System.out.println(l.get(i));
 }
-if(type2.equals("7"))
+if(type2.equals("7"))// if verb is conditional add bo
 {
     l.set(i,a.separate()+"bo");
     System.out.println(l.get(i));
 }
-if(type2.equals("8"))
+if(type2.equals("8"))// if verb is future add ba
 {
 l.set(i,a.separate()+"ba");
     System.out.println(l.get(i));
 
 }
 
-if(type2.equals("9"))
+if(type2.equals("9"))// if verb is future perfect add bu
 {
     l.set(i,a.separate()+"bu");
     System.out.println(l.get(i));
 }
 }
-if(type.equals("2"))
+if(type.equals("2"))// conjugates adjectives
 {
 a.changeA();
 l.set(i,a.separate());
 System.out.println(l.get(i));
 }
-if(type.equals("3"))
+if(type.equals("3"))//conjugates nouns (special cases included as a backup)
 {
     if(l.get(i).equalsIgnoreCase("dingo"))
     {
@@ -131,24 +131,24 @@ if(type.equals("3"))
         System.out.println(l.get(i));
 }
 }
-if(type.equals("4"))
+if(type.equals("4"))// conjugates adverbs
 {
 a.changeAdverb();
 l.set(i,a.separate());
 System.out.println(l.get(i));
 }
-if(type.equals("5"))
+if(type.equals("5"))// conjugates prepositions and conjunctions
 {
 a.prepConj();
 l.set(i,a.separate());
 System.out.println(l.get(i));
 }
-if(type.equals("6"))
+if(type.equals("6"))// conjugates pronouns
 {
     l.set(i,a.pronoun());
     System.out.println(l.get(i));
 }
-if(type.equals("7"))
+if(type.equals("7"))// conjugates interjections (special cases included as a back up)
 {
     if(l.get(i).equalsIgnoreCase("Hello"))
 {
@@ -179,7 +179,7 @@ System.out.println(l.get(i));
 }
 }
 
-     for(String j:l)//printing final sentence
+     for(String j:l)//printing final sentence with spaces
             {
                 System.out.print(j+" ");    
             }

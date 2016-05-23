@@ -1,7 +1,7 @@
 import java.util.*;
-// This class specializes in using methods to manipulate a user input string in the constructor. TSome methods are used to determine specific letter characteristics (which letter? consonant? where in the word?
+// This class specializes in using methods to manipulate a user input string in the constructor. Some methods are used to determine specific letter characteristics (which letter? consonant? where in the word?
 //relation to surrounding letters?). Other methods are used to change the letter arrangments/compositions in the words accordingly. Each methods purpose will be defined at the method header.
-/*Program takes sentences with only words and spaces and puts each word into a list, and displays separated words. For each word, it asks for part of speech, and
+/*Program takes sentences with only words and spaces and puts each word into a list, and displays separated words on their own lines. For each word, it asks for part of speech, and
  * conjugates each word appropriately, displaying the final translated sentence. In all parts of speech except for adjectives, the first letter is shifted to the next consonant.
  * Change 1st letter to next consonant. Verbs add to end: indicative(-eh), deverbal(-ehma), imperfect(-ehla), preterite(-ehle), past perfect(-ehli), present perfect(-ehlo),
  * command(-ehya), conditional(-ehbo), future(-ehba), future perfect(-ehbu) Adjectives add -ek, shift first letter 2 consonants. Nouns add -um.  Special(Dingo = fingum).
@@ -19,14 +19,14 @@ public class Alphabet
 
     }
 
-    public String last()// returns last letter in word
+    public String last()// returns last letter in word for any checks to see what letter it is
     {
         int end = x.length();
         int end2 = x.length()-1;
         return x.substring(end2, end);
     }
 
-    public String first()//returns first letter in word
+    public String first()//returns first letter in word for any checks to see what letter it is
     {
         return x.substring(0,1);
     }
@@ -55,7 +55,7 @@ public class Alphabet
         }
     }
 
-    public String changeV()// conjugates verbs
+    public String changeV()// if first letter of word is consonant, changes it to next consonant in alphabet (goes to beginning of alphabet if z), if first consonant is vowel adds next consonant before vowel, if word ends in vowel, takes off last vowel and adds "eh", if last letter is consonant just adds "eh"
     {
         String temp;
         if(first().equalsIgnoreCase("a"))
@@ -428,8 +428,9 @@ public class Alphabet
         return x;
     }
     //*
-    public String changeA()//conjugates adjectives
+    public String changeA()//if first letter of word is consonant, shifts it over 2 consonants right in alphabet (goes to beginning of alphabet if y or z), if first consonant is vowel adds consonant before vowel, if word ends in vowel, takes off last vowel and adds "eh", if last letter is consonant just adds "ek"
     {
+    
         String temp;
         if(first().equalsIgnoreCase("a"))
         {
@@ -801,8 +802,9 @@ public class Alphabet
 
     
 
-    public String changeN()//conjugates nouns
+    public String changeN()//if first letter of word is consonant, changes it to next consonant in alphabet (goes to beginning of alphabet if z), if first consonant is vowel adds next consonant before vowel, if word ends in vowel, takes off last vowel and adds "um", if last letter is consonant just adds "um", acknowledges the special case of dingo -->"fingum"
     {
+    
         String temp;
         if(x.equalsIgnoreCase("dingo"))
         {
@@ -1179,7 +1181,8 @@ public class Alphabet
         return x;
     }
 
-    public String separate()//separates all non-fluid consonants in the word with the closest vowel in the word, or a default vowel if no such vowel exists, this is normaly performed after all conjugation has occured.
+
+    public String separate()//separates all non-fluid consonant pairs (not ch, sh, th, ck, gh or doubles of same consonant) in the word with the closest vowel in the word, or a default vowel if no such vowel exists ("a"), this is normaly performed after all conjugation has occured. It accesses the private vowel method to assign the appropriate vowel.
     {
         String test = "";
         String k = "";
@@ -1230,18 +1233,18 @@ public class Alphabet
         return x=test;
     }
 
-    private void vowels(int a, List<String> l)//determines the correct vowel in the list of vowels to use in seprating specific consonants
+    private void vowels(int a, List<String> l)//determines the correct vowel in the list of vowels to use in seprating specific consonants by taking a list of the letters of the word and separating appropriate consonants
     {
-        String k = "";
-        int m=a+1;
+        String k = "";//correct vowel insertion
+        int m=a+1;//index after 2 letter pairs
         int x=0;
         int y=0;
-        while(m<l.size())//traversing list w/vowels.
+        while(m<l.size())//traversing list letters (checks after the consonant pair)
         {
-            if(!isConsWithString(l.get(m)))
+            if(!isConsWithString(l.get(m)))// if is vowel
             {
-                k=l.get(m);
-                m=l.size();
+                k=l.get(m);// assign this vowel to the vowel variable
+                m=l.size();// exit loop
 
             }
             else
@@ -1250,12 +1253,12 @@ public class Alphabet
                 m++;
             }
         }
-        if(k.equals("") && a!=1)//determines correct vowel
+        if(k.equals("") && a!=1)//determines correct vowel (checks if no vowel was stored above) 
         {
-            m=a-2;
-            while(m>=0)
+            m=a-2;// to check before consonant pair
+            while(m>=0)// traverses backwards
             {
-                if(!isConsWithString(l.get(m)))
+                if(!isConsWithString(l.get(m)))// checks for vowel and exits when first is found
                 {
                     k=l.get(m);
                     m=-1;
@@ -1268,7 +1271,7 @@ public class Alphabet
             }
 
         }
-        else if(k.equals(""))//if no such vowel exists
+        else if(k.equals(""))//if no such vowel exists, default to a
         {
             k = "a";
         }
@@ -1277,7 +1280,8 @@ public class Alphabet
     }
 
     
-    public String changeAdverb()//conjugates adverbs
+    public String changeAdverb()//if first letter of word is consonant, changes it to next consonant in alphabet (goes to beginning of alphabet if z), if first consonant is vowel adds next consonant before vowel, if word ends in vowel, takes off last vowel and adds "ta", if last letter is consonant just adds "ta"
+    
     {
         String y=changeV().substring(0,x.length()-2);
         y+="ta";
@@ -1286,7 +1290,7 @@ public class Alphabet
 
     }
 
-    public String pronoun()//conjugates specific pronouns
+    public String pronoun()//conjugates specific pronouns to our designated words (no formula)
     {
         if (x.equalsIgnoreCase("me") || x.equalsIgnoreCase("my") || x.equalsIgnoreCase("I"))
         {
@@ -1313,7 +1317,8 @@ public class Alphabet
             return null;
         }
     }//endmethod
-    public String prepConj()//conjugates prepositions and conjunctions
+    public String prepConj()//if first letter of word is consonant, changes it to next consonant in alphabet (goes to beginning of alphabet if z), if first consonant is vowel adds next consonant before vowel, if word ends in vowel, takes off last vowel and adds "uj", if last letter is consonant just adds "uj". It accounts for our special cases that dont follow the formula the words (and, a, and to).
+    
     {
         if(x.equalsIgnoreCase("and"))
         {
@@ -1336,7 +1341,8 @@ public class Alphabet
         }
     }//endmethod
 
-    public String inter()//conjugates idiomatic phrases and interjections (redone in runner class)
+    public String inter()//conjugates idiomatic phrases and interjections (redone in runner class for clarity) if first letter of word is consonant, changes it to next consonant in alphabet (goes to beginning of alphabet if z), if first consonant is vowel adds next consonant before vowel --> special cases are "hello, goodbye, please, and oh man")
+    
     {
         if(x.equalsIgnoreCase("Hello") || x.equalsIgnoreCase("hi"))
         {
