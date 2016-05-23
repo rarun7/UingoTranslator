@@ -1,6 +1,12 @@
 import java.util.*;
 // This class specializes in using methods to manipulate a user input string in the constructor. TSome methods are used to determine specific letter characteristics (which letter? consonant? where in the word?
 //relation to surrounding letters?). Other methods are used to change the letter arrangments/compositions in the words accordingly. Each methods purpose will be defined at the method header.
+/*Program takes sentences with only words and spaces and puts each word into a list, and displays separated words. For each word, it asks for part of speech, and
+ * conjugates each word appropriately, displaying the final translated sentence. In all parts of speech except for adjectives, the first letter is shifted to the next consonant.
+ * Change 1st letter to next consonant. Verbs add to end: indicative(-eh), deverbal(-ehma), imperfect(-ehla), preterite(-ehle), past perfect(-ehli), present perfect(-ehlo),
+ * command(-ehya), conditional(-ehbo), future(-ehba), future perfect(-ehbu) Adjectives add -ek, shift first letter 2 consonants. Nouns add -um.  Special(Dingo = fingum).
+ * Adverb add -ta. Conjunction/Prepostition add -uj. Interjections only shift the first letter consonant.
+ */
 //Authors: Rahul Arun and Varun Ganesh
 //Version 1.1
 public class Alphabet
