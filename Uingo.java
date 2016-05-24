@@ -165,10 +165,10 @@ else if(l.get(i).equalsIgnoreCase("please"))
     l.set(i,"ra cegeh va");
     System.out.println("ra cegeh va");
 }
-else if(l.get(i).equalsIgnoreCase("oh man"))
+else if(l.get(i).equalsIgnoreCase("oh-man"))
 {
-    l.set(i,"oh woman");
-    System.out.println("oh woman");
+    l.set(i,"oh-woman");
+    System.out.println("oh-woman");
 }
 else
 {

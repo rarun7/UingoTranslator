@@ -1300,7 +1300,7 @@ public class Alphabet
         {
             return x="va";
         }
-        else if (x.equalsIgnoreCase("him") || x.equalsIgnoreCase("her") || x.equalsIgnoreCase("his") || x.equalsIgnoreCase("hers") || x.equalsIgnoreCase("it") || x.equalsIgnoreCase("its") || x.equalsIgnoreCase("that") || x.equalsIgnoreCase("this"))
+        else if (x.equalsIgnoreCase("him") || x.equalsIgnoreCase("her") || x.equalsIgnoreCase("his") || x.equalsIgnoreCase("hers") || x.equalsIgnoreCase("it") || x.equalsIgnoreCase("its") || x.equalsIgnoreCase("that") || x.equalsIgnoreCase("this") || x.equalsIgnoreCase("he") || x.equalsIgnoreCase("she"))
         {
             return x="da";
         }
